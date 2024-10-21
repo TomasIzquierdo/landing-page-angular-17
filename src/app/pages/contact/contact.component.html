@@ -1,0 +1,30 @@
+<div class="container">
+<form [formGroup]="contactForm" novalidate (submit)="enviar($event)">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email" [ngClass]="{'is-invalid' : hasErrors('email','required') || hasErrors('email','email')}" aria-describedby="emailHelp">
+      @if (hasErrors('email','required'))
+      {
+        <span class="text-danger">Completá el campo</span>
+      }
+      @if (hasErrors('email','email'))
+      {
+        <span class="text-danger">Formato invalido de correo</span>
+      }
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Message</label>
+      <textarea class="form-control" id="exampleTextarea" formControlName="message" [ngClass]="{'is-invalid' : hasErrors('message','required') || hasErrors('message','minLenght')}" ></textarea>
+      @if (hasErrors('message','required'))
+      {
+        <span class="text-danger">Completá el campo</span>
+      }
+      @if (hasErrors('message','minLenght'))
+      {
+        <span class="text-danger">>Escribí al menos 30 caracteres</span>
+      }
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>Compre argentino</h1>
+    <h2>Compre nuestros productos</h2>
+    @if (loading)
+    {
+        <h5>
+            ...Cargando
+        </h5>
+    }
+    @if (!loading)
+    {       
+
+        <h2></h2>
+
+
+        <div class="card" style="width: 18rem;">
+            <img src="{{product?.image}}" class="card-img-top" alt="{{product?.title}}">
+            <div class="card-body">
+              <h5 class="card-title">{{product?.title}}</h5>
+              <h4 class="card-title">{{product?.category}}</h4>
+              <h4>{{product?.price | currency}}</h4>
+              <p class="card-text">{{product?.description}}</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+
+    }
+</div>
